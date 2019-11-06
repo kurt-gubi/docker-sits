@@ -1,1 +1,8 @@
-oracle-*/*.zip
+# Oracle installation binaries
+oracle-11.2.0.3/p10404530_112030_Linux-x86-64_1of7.zip
+oracle-11.2.0.3/p10404530_112030_Linux-x86-64_2of7.zip
+
+# SITS installation binaries
+sits-9.7.0/970-ALLFIXES.zip
+sits-9.7.0/970-REL01LID.zip
+sits-9.7.0/970-REL01ZIP.zip

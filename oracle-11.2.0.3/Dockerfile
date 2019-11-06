@@ -1,4 +1,3 @@
-# stage 1
 FROM centos:6
 
 COPY "provision" /tmp/provision
