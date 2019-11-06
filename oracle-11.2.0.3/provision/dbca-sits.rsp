@@ -1,0 +1,17 @@
+[GENERAL]
+RESPONSEFILE_VERSION = "11.2.0"
+OPERATION_TYPE = "createDatabase"
+[CREATEDATABASE]
+GDBNAME = "sits"
+DATABASECONFTYPE  = "SI"
+SID = "sits"
+TEMPLATENAME = "General_Purpose.dbc"
+SYSPASSWORD = "sits"
+SYSTEMPASSWORD = "sits"
+DATAFILEDESTINATION=/u01/app/oracle/oradata
+RECOVERYAREADESTINATION=/opt/oracle/app/oradata
+STORAGETYPE=FS
+CHARACTERSET="WE8MSWIN1252"
+INITPARAMS="memory_target=0,sga_target=500,pga_aggregate_target=100,java_jit_enabled=false"
+AUTOMATICMEMORYMANAGEMENT="TRUE"
+DATAFILEJARLOCATION = /u01/app/oracle/product/11.2.0/dbhome_1/assistants/dbca/templates

@@ -53,15 +53,21 @@ su - oracle -c "/tmp/database/runInstaller -silent -ignorePrereq -noconfig -wait
 /u01/app/oracle/product/11.2.0/dbhome_1/root.sh
 
 # create "SITS" database
-su - oracle -c "dbca -silent -createDatabase -templateName General_Purpose.dbc -sid sits -sysPassword sits -systemPassword sits -gdbName sits -emConfiguration NONE -storageType FS -datafileDestination /u01/app/oracle/oradata -datafileJarLocation /u01/app/oracle/product/11.2.0/dbhome_1/assistants/dbca/templates -responseFile NO_VALUE -characterset WE8MSWIN1252 -obfuscatedPasswords false -sampleSchema true -oratabLocation /etc/oratab -automaticMemoryManagement true -totalMemory 800 -maskPasswords false -oui_internal"
+su - oracle -c "dbca -silent -responseFile /tmp/provision/dbca-sits.rsp"
 sed -i "s/\(sits:.*\):N$/\1:Y/" /etc/oratab
 echo -e "\nDEFAULT_SERVICE_LISTENER=sits" >> /u01/app/oracle/product/11.2.0/dbhome_1/network/admin/listener.ora
 
-su - oracle -c "echo 'ALTER SYSTEM SET open_cursors = 2000 SCOPE=BOTH;' | sqlplus / as sysdba"
-su - oracle -c "echo 'ALTER SYSTEM SET processes = 300 SCOPE=spfile;' | sqlplus / as sysdba"
-su - oracle -c "echo 'ALTER SYSTEM SET sessions = 300 SCOPE=spfile;' | sqlplus / as sysdba"
-su - oracle -c "echo 'ALTER SYSTEM SET db_files = 400 SCOPE=spfile;' | sqlplus / as sysdba"
-su - oracle -c "echo 'ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;' | sqlplus / as sysdba"
+# initialise system settings
+su - oracle << ORACLE
+sqlplus / as sysdba << SQLPLUS
+ALTER SYSTEM SET open_cursors = 2000 SCOPE=BOTH;
+ALTER SYSTEM SET processes = 300 SCOPE=spfile;
+ALTER SYSTEM SET sessions = 300 SCOPE=spfile;
+ALTER SYSTEM SET db_files = 400 SCOPE=spfile;
+ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;
+ALTER SYSTEM SET open_cursors = 2000 SCOPE=BOTH;
+SQLPLUS
+ORACLE
 
 # deploy startup script
 cp /tmp/provision/init-d.dbora /etc/init.d/dbora
@@ -75,5 +81,6 @@ rm -rf /tmp/dbca
 rm -rf /tmp/filegroup38
 rm -rf /tmp/logs
 rm -rf /tmp/oracle-install
+rm -rf /tmp/provision
 rm -f /tmp/p10404530_112030_Linux-x86-64_1of7.zip
 rm -f /tmp/p10404530_112030_Linux-x86-64_2of7.zip

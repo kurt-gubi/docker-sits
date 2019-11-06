@@ -1,12 +1,10 @@
 # stage 1
-FROM centos:6 as oracle_install
+FROM centos:6
 
-ARG INSTALL_FILE_1="p10404530_112030_Linux-x86-64_1of7.zip"
-ARG INSTALL_FILE_2="p10404530_112030_Linux-x86-64_2of7.zip"
-ARG PROVISION_DIR="provision"
-ARG SETUP_SCRIPT="/tmp/${PROVISION_DIR}/setup.sh"
+COPY "provision" /tmp/provision
+COPY "p10404530_112030_Linux-x86-64_1of7.zip" "p10404530_112030_Linux-x86-64_2of7.zip" /tmp/
 
-COPY $PROVISION_DIR /tmp/$PROVISION_DIR
-COPY $INSTALL_FILE_1 $INSTALL_FILE_2 /tmp/
+RUN yum -y update && exec /tmp/provision/setup.sh
 
-RUN yum -y update && exec $SETUP_SCRIPT
+EXPOSE 1521
+CMD service dbora start
