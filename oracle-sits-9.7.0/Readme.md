@@ -5,11 +5,9 @@ docker build -t oracle:sits-9.7.0 .
 
 Initialising an Oracle 11.2.0.3 database for SITS 9.7.0.
 
-SITS files can be downloaded from the MySITS website;
-https://www.mysits.com/
+SITS files can be [downloaded from the MySITS website](https://www.mysits.com/).
 
-Oracle metadata for SITS 9.7.0 can be extracted from the SITS 9.7.0 STP;
-http://www.sitse-vision.co.uk/stp/index.html
+Oracle metadata for SITS 9.7.0 can be extracted from the [SITS 9.7.0 STP](https://www.sitse-vision.co.uk/stp/index.html).
 
 Method for extracting metadata from STP;
 1. Extract database metadata with Oracle datapump export (ideally using `content=METADATA_ONLY`)
