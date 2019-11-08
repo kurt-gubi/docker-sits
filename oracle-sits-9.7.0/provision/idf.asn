@@ -1,0 +1,19 @@
+[SETTINGS]
+$SEARCH_DESCRIPTOR          DBMS_FIRST
+$SEARCH_OBJECT              DBMS_FIRST
+$LICENSE_OPTIONS            LM_LICENSE_FILE=/tmp/sits-install/license9.xml
+;
+[DRIVER_SETTINGS]
+ORA = U7.0
+usys$ora_params = im, dac, open cursors 1000, uselike, nclob_ext, dhfr, ss 500, fa, af 500
+;
+[PATHS]
+$DEF    = ora:localhost|sits|sits
+$IDF    = $DEF
+$SSP    = $DEF
+$SYS    = $DEF
+$UUU    = $DEF
+[ENTITIES]
+*.cams              $DEF:CAM_*
+*.mensys            $DEF:MEN_*
+*.srs               $DEF:SRS_*
