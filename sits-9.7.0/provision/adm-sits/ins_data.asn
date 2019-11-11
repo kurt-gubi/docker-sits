@@ -1,0 +1,73 @@
+[TM]
+; Shared "INS" ENTITIES
+;------------------------------------------------------
+;
+[ENTITIES]
+;
+aa1*              $DEF:INS_AA1*
+aa2*              $DEF:INS_AA2*
+aa3*              $DEF:INS_AA3*
+aa4*              $DEF:INS_AA4*
+aa5*              $DEF:INS_AA5*
+avg*              $DEF:INS_AVG*
+awd*              $DEF:INS_AWD*
+ayr*              $DEF:INS_AYR*
+bld*              $DEF:INS_BLD*
+cco*              $DEF:INS_CCO*
+cmp*              $DEF:INS_CMP*
+crm*              $DEF:INS_CRM*
+dpt*              $DEF:INS_DPT*
+ecl*              $DEF:INS_ECL*
+elv*              $DEF:INS_ELV*
+eqa*              $DEF:INS_EQA*
+esb*              $DEF:INS_ESB*
+fpe*              $DEF:INS_FPE*
+fpt*              $DEF:INS_FPT*
+ins*              $DEF:INS_INS*
+lca*              $DEF:INS_LCA*
+lev*              $DEF:CAM_LEV*
+ltl*              $DEF:CAM_LTL*
+moa*              $DEF:INS_MOA*
+mod*              $DEF:INS_MOD*
+par*              $DEF:INS_PAR*
+pes*              $DEF:CAM_PES*
+prd*              $DEF:INS_PRD*
+prg*              $DEF:INS_PRG*
+prs*              $DEF:INS_PRS*
+pru*              $DEF:INS_PRU*
+psd*              $DEF:INS_PSD*
+psl*              $DEF:INS_PSL*
+pwg*              $DEF:INS_PWG*
+pwt*              $DEF:INS_PWT*
+pwy*              $DEF:INS_PWY*
+res*              $DEF:INS_RES*
+roe*              $DEF:INS_ROE*
+rom*              $DEF:INS_ROM*
+rou*              $DEF:INS_ROU*
+rty*              $DEF:INS_RTY*
+sa1*              $DEF:INS_SA1*
+sa2*              $DEF:INS_SA2*
+sa3*              $DEF:INS_SA3*
+sa4*              $DEF:INS_SA4*
+sa5*              $DEF:INS_SA5*
+sch*              $DEF:INS_SCH*
+sgr*              $DEF:INS_SGR*
+sit*              $DEF:INS_SIT*
+smo*              $DEF:CAM_SMO*
+;
+smr_eas.eas       $txt:/tmp/smr_eas.dat/append
+;
+smr*              $DEF:INS_SMR*
+;
+; CIHE import files
+spr_cihe.cihe     $txt:/tmp/spr_cihe.ffd/append
+;
+spr*              $DEF:INS_SPR*
+spy*              $DEF:INS_SPY*
+sts*              $DEF:INS_STS*
+stu*              $DEF:INS_STU*
+sub*              $DEF:INS_SUB*
+uty*              $DEF:INS_UTY*
+val*              $DEF:INS_VAL*
+yps*              $DEF:INS_YPS*
+;

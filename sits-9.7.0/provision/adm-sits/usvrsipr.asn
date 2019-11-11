@@ -1,0 +1,25 @@
+[TM]
+; USERVER assignment file
+;----------------------------------------------------------
+#FILE /u01/siapp/vision/prod/adm/svrsipr.asn
+;
+[SETTINGS]
+$PUTMESS_LOGFILE            /u01/siapp/vision/prod/logs/svc/usvrsipr_log_%p.log
+;
+[SERVICES_EXEC]
+SSP_*            = $SSP:SSP_*
+MEN13_SSP        = $SSP:MEN13_SSP
+men_yapp_eml     = $EML:men_yapp_eml
+men_yapp_srv     = $SRV:men_yapp_srv
+men_yapp_wsv     = $XSL:men_yapp_wsv
+men_yapp_xsl     = $XSL:men_yapp_xsl
+srs_heims_svc    = $BTC:srs_heims_svc
+srs_yapp_deewr   = $DEW:srs_yapp_deewr
+srs_yapp_deewr2  = $DEW2:srs_yapp_deewr
+srs_yapp_tac     = $TAC:srs_yapp_tac
+men_yapp_fld     = $FLD:men_yapp_fld
+men_yapp_java_01 = $JAR:men_yapp_java_01
+
+men_yapp_s01    = $S01:men_yapp_s01
+
+men_yapp_w01    = $W01:men_yapp_w01

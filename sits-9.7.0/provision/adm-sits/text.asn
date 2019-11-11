@@ -1,0 +1,114 @@
+[TM]
+; Text files for CAMS/MAS/MENSYS & SRS.
+;------------------------------------------------------
+[ENTITIES]
+;
+;------------------------------------------------------
+;
+; CAMS text files
+;
+bsm.cams         $txt:bsm.ffd/append
+dsl.cams         $txt:bsm.ffd
+nbs.cams         $txt:bsm.ffd
+;
+emc.cams         $txt:emc.ffd
+emca.cams        $txt:emc.ffd/append
+;
+hmr.cams         $txt:hmr.ffd
+hmra.cams        $txt:hmr.ffd/append
+hmr95.cams       $txt:hmr95.ffd/append
+hmr96.cams       $txt:hmr96.ffd/append
+;
+srx.cams         $txt:srx.ffd
+srp.cams         $txt:srx.ffd/append
+;
+sri.cams         $txt:sri.ffd/append
+mrx.cams         $txt:mrx.ffd
+;
+; CAMS text files normally held on server ...
+;
+vpr.cams         $txt:vpr.ffd/append
+nvp.cams         $txt:vpr.ffd
+smr_eas.eas $txt:smr_eas.dat/append
+;
+;------------------------------------------------------
+;
+; SRS Text files
+;
+csv.srs          $txt:csv.ffd
+;
+; Student Import (SCJ,SCE,SPR)
+tfi.mensys       $txt:tfi.txt/append
+; Progression information (SCE,SEQ,FLAG,DATA)
+pfin.mensys      $txt:pfi.ffd
+pfi.mensys       $txt:pfi.ffd/append
+;
+;
+; Old FESR files
+fec.srs          $txt:fec.ffd
+fes.srs          $txt:fec.ffd/append
+; 
+; Finance export files
+efa*.srs         $txt:efa*.ffd/append
+efc*.srs         $txt:efc*.ffd/append
+efe*.srs         $txt:efe*.ffd/append
+efn*.srs         $txt:efn*.ffd/append
+efi_sub.srs      $txt:eft_sub.ffd/append
+efh_sub.srs      $txt:eft_sub.ffd/append
+efy*.srs         $txt:efy*.ffd/append
+efi_uol.srs      $txt:efi_uol.ffd/append
+; 
+; Finance import files
+ifr.srs          $txt:ifr.ffd/append
+;
+; Student debts import
+sdi.srs          $txt:sdi.ffd/append
+;
+; HEC and HES files - Required as text ONLY for DB3.
+;
+hec95.srs        $txt:hec95.ffd/append
+hes95.srs        $txt:hes95.ffd/append
+hec96.srs        $txt:hec96.ffd/append
+hes96.srs        $txt:hes96.ffd/append
+;
+; Non ISR Return for FEFCE
+dle.srs          $txt:dle.ffd/append
+;
+; Libertas interface
+adv.srs          $txt:adv.ffd/append
+lre.srs          $txt:lre.ffd/append
+;
+; Scottish Quals Authority files
+qai.srs          $txt:sqadata/qai.ffd/append
+qmi.srs          $txt:sqadata/qmi.ffd/append
+;
+; SBS accommodation import/export
+sai.srs          $txt:sai.ffd/append
+sax.srs          $txt:sax.ffd
+saxr.srs         $txt:sax.ffd/append
+;
+; Local files for UCAS confirmation
+ucw*.srs         $txt:ucr*.ffd
+ucr*.srs         $txt:ucr*.ffd/append
+;
+; UCAS Schools Import
+usc.srs          $txt:usc.ffd/append
+;
+; KAC import file
+kli.srs          $txt:kli.ffd/append
+;
+; CEM LMS posting export file
+efm_sub.srs      $txt:efm_sub.ffd/append
+;
+; CIHE import files
+spr_cihe.cihe    $txt:spr_cihe.ffd/append
+;------------------------------------------------------
+;
+; MENSYS text files
+;
+tfi.mensys       $txt:tfi.txt/append
+ctr.mensys       $txt:ctr.ffd/append
+ctx.mensys       $txt:ctr.ffd
+;
+;------------------------------------------------------
+;

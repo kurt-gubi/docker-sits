@@ -1,0 +1,7 @@
+[TM]
+; MENBCP assignment file
+;----------------------------------------------------------
+#FILE /u01/siapp/vision/prod/adm/svrsipr.asn
+;
+[SETTINGS]
+$PUTMESS_LOGFILE            /u01/siapp/vision/prod/logs/svc/bsvrsipr_log_%p.log

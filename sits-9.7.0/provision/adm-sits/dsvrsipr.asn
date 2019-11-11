@@ -1,0 +1,10 @@
+[TM]
+; DEEWR Process / Reporting USERVER assignment file
+;----------------------------------------------------------
+#FILE /u01/siapp/vision/prod/adm/svrsipr.asn
+;
+[SETTINGS]
+$PUTMESS_LOGFILE            /u01/siapp/vision/prod/logs/deewr/dsvrsipr_log_%p.log
+;
+[SERVICES_EXEC]
+srs_yapp_deewr2  = $DEW2:srs_yapp_deewr2

@@ -1,0 +1,92 @@
+[TM]
+; USERVER assignment file
+;-------------------------------------------------------
+[SETTINGS]
+$ACTIVE_FIELD               (bor,col=3)
+$CASCADE_TRIGGER
+$CENTURY_BREAK              25
+$CHECK_BOX                  ,,INV
+$DEF_CHARSET                UTF8
+$DEF_CUROCC_VIDEO           (BOR,COL=2)
+$DEF_VIDEO                  INV
+$DISPLAY                    VT100
+$ENHANCED_EDIT              ALL
+$GUI                        CHR
+$KEYBOARD                   VT100
+$LANGUAGE                   USA
+$LIST_BOX                   (BRI,INV),INV
+$MAX_CACHE_SIZE             10000
+$MAXFILES                   100
+$MAX_QUE                    512
+$PROFILE_VIDEO              (UND,COL=52)
+$PUTMESS_LOGFILE            /u01/siapp/vision/prod/logs/userver/svrsipr_log.log
+$RADIO_BUTTON               (inv,bri),inv
+$SEARCH_DESCRIPTOR          DBMS_FIRST
+$SEARCH_OBJECT              DBMS_FIRST
+$STOP_ON_DIV_BY_ZERO        FALSE
+$VARIATION                  SITS_MEN
+$V7Include_fields           true
+$LICENSE_OPTIONS            LM_LICENSE_FILE=/u01/siapp/vision/prod/sits/cwlm/license9.xml
+$SOAP_CALLIN_CB             MEN_SRDLOG_SVC
+;-------------------------------------------------------
+[DRIVER_SETTINGS]
+; Oracle 11
+ORA = U7.0
+usys$ora_params = im, dac, open cursors 1000, uselike, nclob_ext, dhfr, ss 500, fa, af 500
+; Text
+TXT = U1.0
+; LDAP
+LDP = U2.0
+usys$ldp_params searchscope:ldap_scope_subtree, connections:30, addbase:off
+;-------------------------------------------------------
+[USER_3GL]
+/u01/siapp/vision/prod/sits/3gl/linux64/simd5.so(SIMD5,SIGetProcessID,SIRandNumber)
+libupop.so(USINITUPOPMAIL,USSENDMAILUPOPMAIL)
+;-------------------------------------------------------
+[PROXY_SETTINGS]
+;$SERVER=
+;-------------------------------------------------------
+[PATHS]
+$DEF    = ora:oracle|sits|sits
+$IDF    = $DEF
+$SSP    = $DEF
+$SYS    = $DEF
+$UUU    = $DEF
+$LDP    = ldp:localhost
+$BTC    = tcp:localhost+13086|uroutpr|sits|bsvrsipr
+$DEW2   = tcp:localhost+13086|uroutpr|sits|dsvrsipr2
+$DEW    = tcp:localhost+13086|uroutpr|sits|dsvrsipr
+$EML    = tcp:localhost+13086|uroutpr|sits|esvrsipr
+$FLD    = tcp:localhost+13086|uroutpr|sits|fsvrsipr
+$JAR    = tcp:localhost+13086|uroutpr|sits|jsvrsipr
+$S01    = tcp:localhost+13086|uroutpr|sits|ysvrsipr
+$SRV    = tcp:localhost+13086|uroutpr|sits|ysvrsipr
+$TAC    = tcp:localhost+13086|uroutpr|sits|tsvrsipr
+$W01    = tcp:localhost+13086|uroutpr|sits|wsvrsipr
+$XSL    = tcp:localhost+13086|uroutpr|sits|xsvrsipr
+;-------------------------------------------------------
+[FILES]
+#FILE /u01/siapp/vision/prod/adm/component.asn
+;-------------------------------------------------------
+[ENTITIES]
+#FILE /u01/siapp/vision/prod/adm/ins_data.asn
+; Local Text entities ($TXT)
+#FILE /u01/siapp/vision/prod/adm/text.asn
+; SITS Entities
+*.cams              $DEF:CAM_*
+*.cao               $DEF:CAO_*
+*.cao_txt           $CAO:CAO_*
+*.btec              $DEF:BTEC_*
+*.mensys            $DEF:MEN_*
+*.occ               $OCCAM:*
+*.sil               $DEF:SIL_*
+*.srs               $DEF:SRS_*
+*.ucas              $DEF:*.ucas
+*.views             $DEF:VIEWS_*
+*.hercules          $DEF:HERC_*
+PRATT.PRINTER       $DEF:PRATT
+*.ldap              $LDP:*.*
+;-------------------------------------------------------
+[LOGICALS]
+#FILE /u01/siapp/vision/prod/adm/svrlogical.asn
+;-------------------------------------------------------

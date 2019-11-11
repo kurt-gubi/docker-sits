@@ -1,0 +1,7 @@
+[TM]
+; YAPP_EML HTML Email USERVER assignment file
+;----------------------------------------------------------
+#FILE /u01/siapp/vision/prod/adm/svrsipr.asn
+;
+[SETTINGS]
+$PUTMESS_LOGFILE            /u01/siapp/vision/prod/logs/eml/esvrsipr_log_%p.log
