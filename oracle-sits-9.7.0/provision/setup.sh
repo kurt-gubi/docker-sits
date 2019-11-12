@@ -45,7 +45,7 @@ sed -i "s/\(sits:.*\):N$/\1:Y/" /etc/oratab
 echo -e "\nDEFAULT_SERVICE_LISTENER=sits" >> $ORACLE_HOME/network/admin/listener.ora
 
 # Start Oracle
-/sbin/service dbora start
+su - oracle -c "$ORACLE_HOME/bin/dbstart $ORACLE_HOME"
 
 # Initialise Oracle system settings
 su - oracle << ORACLE
@@ -154,7 +154,7 @@ cd ${DIR_TEMP}/reldata_970
 ${IDF} /rma /int=10000 /cpy xml:*.xml def:
 
 # Stop Oracle
-/sbin/service dbora stop
+su - oracle -c "$ORACLE_HOME/bin/dbshut $ORACLE_HOME"
 
 # Remove temporary resources
 rm -rf /tmp/dbca

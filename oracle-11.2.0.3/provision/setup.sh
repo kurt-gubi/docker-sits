@@ -54,10 +54,8 @@ su - oracle -c "/tmp/database/runInstaller -silent -ignorePrereq -noconfig -wait
 /u01/app/oraInventory/orainstRoot.sh
 $ORACLE_HOME/root.sh
 
-# Deploy startup script
-cp $DIR_PROVISION/init-d.dbora /etc/init.d/dbora
-chmod 750 /etc/init.d/dbora
-chkconfig --level 345 dbora on
+# Deploy Docker entry point script
+cp ${DIR_PROVISION}/docker-entrypoint.sh /usr/local/bin/
 
 # Tidy up files
 rm -rf /tmp/CVU_11.2.0.3.0_oracle

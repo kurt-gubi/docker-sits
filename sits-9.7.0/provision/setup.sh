@@ -16,6 +16,8 @@ ZIP_ALLFIXES="/tmp/provision/970-ALLFIXES.zip"
 
 # Install SITS dependencies
 yum -y install dos2unix
+# Install Oracle client dependencies
+yum -y install libaio
 # Install other dependencies
 yum -y install unzip initscripts
 
@@ -60,10 +62,12 @@ install ${INSTALL_DIR_PARAMS} ${DIR_APP}/logs/{deewr,eml,finance,fop,javatmp,men
 # Adjust file permissions
 chown -R ${USER_SITS}:${GROUP_SITS} ${DIR_APP}
 
-# Deploy startup script for urouter
-cp /tmp/provision/init-d.sits /etc/init.d/${USER_SITS}
-chmod 750 /etc/init.d/${USER_SITS}
-chkconfig --level 345 ${USER_SITS} on
+# Install Oracle client
+rpm -ivh ${DIR_PROVISION}/oracle-instantclient11.2-basic-11.2.0.3.0-1.x86_64.rpm
+rpm -ivh ${DIR_PROVISION}/oracle-instantclient11.2-sqlplus-11.2.0.3.0-1.x86_64.rpm
+
+# Deploy Docker entry point script
+cp ${DIR_PROVISION}/docker-entrypoint.sh /usr/local/bin/
 
 # Remove temporary resources
 rm -rf ${DIR_TEMP}

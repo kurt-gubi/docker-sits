@@ -18,6 +18,7 @@ ORACLE_SID=sits ; export ORACLE_SID
 PATH=$PATH:/usr/sbin:$ORACLE_HOME/bin ; export PATH
 NLS_LANG=AMERICAN_AMERICA.WE8ISO8859P15 ; export NLS_LANG
 ORA_NCHAR_LITERAL_REPLACE=TRUE ; export ORA_NCHAR_LITERAL_REPLACE
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ORACLE_HOME/lib ; export LD_LIBRARY_PATH
 #
 # Application logicals
 rt="$APPBASE/uniface/bin/uniface /asn=$APPBASE/adm/svrsipr.asn rt"; export rt

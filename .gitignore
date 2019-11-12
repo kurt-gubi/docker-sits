@@ -1,6 +1,10 @@
-# Oracle installation binaries
+# Oracle DB server installation binaries
 p10404530_112030_Linux-x86-64_1of7.zip
 p10404530_112030_Linux-x86-64_2of7.zip
+
+# Oracle DB client installation binaries
+oracle-instantclient11.2-basic-11.2.0.3.0-1.x86_64.rpm
+oracle-instantclient11.2-sqlplus-11.2.0.3.0-1.x86_64.rpm
 
 # SITS installation binaries
 970-ALLFIXES.zip
