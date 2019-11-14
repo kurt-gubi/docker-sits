@@ -1,9 +1,9 @@
-# SITS 9.7.0
+# SITS 9.7.0 - app
 ```
-docker build -t sits:9.7.0 .
+docker build -t sits:9.7.0-app .
 ```
 
-Initialising a SITS 9.7.0 base image.
+Initialising a SITS 9.7.0 base image for an application server.
 
 SITS files can be [downloaded from the MySITS website](https://www.mysits.com/).
 

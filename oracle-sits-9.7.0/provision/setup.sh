@@ -15,15 +15,22 @@ ZIP_UNIFACE="/tmp/provision/970-REL01LID.zip"
 ORACLE_BASE=/u01/app/oracle ; export ORACLE_BASE
 ORACLE_HOME=$ORACLE_BASE/product/11.2.0/dbhome_1 ; export ORACLE_HOME
 ORACLE_SID=sits ; export ORACLE_SID
+PATH=$PATH:$ORACLE_HOME/bin ; export PATH
+ORACLE_USER=oracle
+ORACLE_GROUP=dba
+ORACLE_DATADIR=$ORACLE_BASE/oradata
+chown -R $ORACLE_USER:$ORACLE_GROUP $ORACLE_DATADIR
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ORACLE_HOME/lib ; export LD_LIBRARY_PATH
 
 # Java environment
 JAVA_HOME=$APPBASE/jre ; export JAVA_HOME
 JRE_HOME=$JAVA_HOME ; export JRE_HOME
-PATH=$JAVA_HOME/bin:$PATH:.:$ORACLE_HOME/bin ; export PATH
+PATH=$JAVA_HOME/bin:$PATH ; export PATH
+LD_LIBRARY_PATH=$JAVA_HOME/lib/amd64/server:$LD_LIBRARY_PATH ; export LD_LIBRARY_PATH
 
+# Uniface environment
 mkdir ${DIR_TEMP}
-LD_LIBRARY_PATH=$JAVA_HOME/lib/amd64/server:${DIR_TEMP}/uniface/lib:$LD_LIBRARY_PATH:$ORACLE_HOME/lib ; export LD_LIBRARY_PATH
-
+LD_LIBRARY_PATH=${DIR_TEMP}/uniface/lib:$LD_LIBRARY_PATH ; export LD_LIBRARY_PATH
 
 # Extract Uniface
 unzip -qn ${ZIP_UNIFACE} 'uniface970lid.tar.gz' -d ${DIR_TEMP}/uniface
@@ -40,15 +47,15 @@ unzip -qn ${DIR_TEMP}/release970.zip 'release/9.7.0/reldata/*' -d ${DIR_TEMP}/si
 mv ${DIR_TEMP}/sits/release/9.7.0/reldata ${DIR_TEMP}/reldata_970
 
 # Create "SITS" database
-su - oracle -c "dbca -silent -responseFile $DIR_PROVISION/dbca-sits.rsp"
+su - $ORACLE_USER -c "dbca -silent -responseFile $DIR_PROVISION/dbca-sits.rsp"
 sed -i "s/\(sits:.*\):N$/\1:Y/" /etc/oratab
 echo -e "\nDEFAULT_SERVICE_LISTENER=sits" >> $ORACLE_HOME/network/admin/listener.ora
 
 # Start Oracle
-su - oracle -c "$ORACLE_HOME/bin/dbstart $ORACLE_HOME"
+su - $ORACLE_USER -c "$ORACLE_HOME/bin/dbstart $ORACLE_HOME"
 
 # Initialise Oracle system settings
-su - oracle << ORACLE
+su - $ORACLE_USER << ORACLE
 sqlplus / as sysdba << SQLPLUS
 WHENEVER SQLERROR EXIT FAILURE;
 ALTER SYSTEM SET open_cursors = 2000 SCOPE=BOTH;
@@ -62,7 +69,7 @@ SQLPLUS
 ORACLE
 
 # Uninstall the unwanted (unlicensed) Oracle options
-su - oracle << ORACLE
+su - $ORACLE_USER << ORACLE
 cd $ORACLE_HOME/rdbms/lib
 make -f ins_rdbms.mk asm_off    # Turn off 'Automated Storage Management'
 make -f ins_rdbms.mk dm_off     # Turn off 'Oracle Data Mining'
@@ -76,7 +83,7 @@ sqlplus / as sysdba @"?/md/admin/mddins"
 ORACLE
 
 # Create SITS Oracle tablespace
-su - oracle << ORACLE
+su - $ORACLE_USER << ORACLE
 sqlplus / as sysdba << SQLPLUS
 WHENEVER SQLERROR EXIT FAILURE;
 CREATE SMALLFILE TABLESPACE SITS_DATA DATAFILE 
@@ -95,7 +102,7 @@ SQLPLUS
 ORACLE
 
 # Create SITS Oracle user
-su - oracle << ORACLE
+su - $ORACLE_USER << ORACLE
 sqlplus / as sysdba << SQLPLUS
 WHENEVER SQLERROR EXIT FAILURE;
 SET VERIFY OFF
@@ -126,7 +133,7 @@ SQLPLUS
 ORACLE
 
 # Import SITS Oracle metadata
-su - oracle << ORACLE
+su - $ORACLE_USER << ORACLE
 sqlplus / as sysdba << SQLPLUS
 ALTER SESSION SET CURRENT_SCHEMA=SITS;
 @${DIR_METADATA}/sits_metadata.SEQUENCE.SEQUENCE.sql
@@ -154,7 +161,7 @@ cd ${DIR_TEMP}/reldata_970
 ${IDF} /rma /int=10000 /cpy xml:*.xml def:
 
 # Stop Oracle
-su - oracle -c "$ORACLE_HOME/bin/dbshut $ORACLE_HOME"
+su - $ORACLE_USER -c "$ORACLE_HOME/bin/dbshut $ORACLE_HOME"
 
 # Remove temporary resources
 rm -rf /tmp/dbca

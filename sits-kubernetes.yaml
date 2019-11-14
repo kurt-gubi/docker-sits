@@ -39,30 +39,30 @@ spec:
   selector:
     app: oracle
 ---
-# SITS deployment
+# SITS app deployment
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: sits
+  name: sits-app
   namespace: sits
 spec:
   selector:
     matchLabels:
-      app: sits
+      app: sits-app
   template:
     metadata:
       labels:
-        app: sits
+        app: sits-app
     spec:
       containers:
-        - name: sits
-          image: sits:9.7.0
+        - name: sits-app
+          image: sits:9.7.0-app
 ---
-# SITS service
+# SITS app service
 apiVersion: v1
 kind: Service
 metadata:
-  name: sits
+  name: sits-app
   namespace: sits
 spec:
   type: NodePort
@@ -70,4 +70,4 @@ spec:
   - port: 13086
     targetPort: 13086
   selector:
-    app: sits
+    app: sits-app
