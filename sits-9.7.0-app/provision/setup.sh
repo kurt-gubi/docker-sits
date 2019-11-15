@@ -14,12 +14,8 @@ ZIP_SITS="/tmp/provision/970-REL01ZIP.zip"
 ZIP_UNIFACE="/tmp/provision/970-REL01LID.zip"
 ZIP_ALLFIXES="/tmp/provision/970-ALLFIXES.zip"
 
-# Install SITS dependencies
-yum -y install dos2unix
-# Install Oracle client dependencies
-yum -y install libaio
-# Install other dependencies
-yum -y install unzip initscripts
+# Install package dependencies
+yum -y install dos2unix libaio unzip
 
 # Create the SITS user/group
 groupadd -g 900 ${GROUP_SITS}

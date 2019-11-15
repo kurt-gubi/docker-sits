@@ -1,1 +1,9 @@
-FROM tomcat:8.5-jdk8-openjdk
+FROM centos:6
+
+COPY "provision" /tmp/provision
+COPY "apache-tomcat-9.0.24.tar.gz" "970-REL01LID.zip" /tmp/provision/
+
+RUN yum -y update && exec /tmp/provision/setup.sh
+
+EXPOSE 13089
+ENTRYPOINT ["docker-entrypoint.sh"]

@@ -5,5 +5,5 @@ COPY "970-ALLFIXES.zip" "970-REL01LID.zip" "970-REL01ZIP.zip" "oracle-instantcli
 
 RUN yum -y update && exec /tmp/provision/setup.sh
 
-EXPOSE 80 13089 13086
+EXPOSE 13086
 ENTRYPOINT ["docker-entrypoint.sh"]

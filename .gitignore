@@ -13,3 +13,6 @@ oracle-instantclient11.2-sqlplus-11.2.0.3.0-1.x86_64.rpm
 
 # SITS Oracle metadata
 oracle-metadata/
+
+# Tomcat installation binaries
+apache-tomcat-9.0.24.tar.gz
