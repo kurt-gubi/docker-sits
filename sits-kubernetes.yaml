@@ -71,3 +71,69 @@ spec:
     targetPort: 13086
   selector:
     app: sits-app
+---
+# SITS webapp deployment
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: sits-webapp
+  namespace: sits
+spec:
+  selector:
+    matchLabels:
+      app: sits-webapp
+  template:
+    metadata:
+      labels:
+        app: sits-webapp
+    spec:
+      containers:
+        - name: sits-webapp
+          image: sits:9.7.0-webapp
+---
+# SITS webapp service
+apiVersion: v1
+kind: Service
+metadata:
+  name: sits-webapp
+  namespace: sits
+spec:
+  type: NodePort
+  ports:
+  - port: 13089
+    targetPort: 13089
+  selector:
+    app: sits-webapp
+---
+# SITS web deployment
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: sits-web
+  namespace: sits
+spec:
+  selector:
+    matchLabels:
+      app: sits-web
+  template:
+    metadata:
+      labels:
+        app: sits-web
+    spec:
+      containers:
+        - name: sits-web
+          image: sits:9.7.0-web
+---
+# SITS web service
+apiVersion: v1
+kind: Service
+metadata:
+  name: sits-web
+  namespace: sits
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: sits-web
