@@ -100,7 +100,11 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: 13089
+  - name: tomcat-ajp
+    port: 13084
+    targetPort: 13084
+  - name: tomcat-http
+    port: 13089
     targetPort: 13089
   selector:
     app: sits-webapp

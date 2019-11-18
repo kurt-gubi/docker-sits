@@ -15,7 +15,7 @@ ZIP_UNIFACE="/tmp/provision/970-REL01LID.zip"
 ZIP_ALLFIXES="/tmp/provision/970-ALLFIXES.zip"
 
 # Install package dependencies
-yum -y install dos2unix libaio unzip
+yum -y install dos2unix libaio unzip util-linux-ng
 
 # Create the SITS user/group
 groupadd -g 900 ${GROUP_SITS}

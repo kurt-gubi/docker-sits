@@ -6,5 +6,5 @@ umask 002
 
 SITS_HOME=/u01/siapp/vision/prod
 
-su - uroutpr -c "$SITS_HOME/uniface/adm/startup.sh"
-tailf $SITS_HOME/logs/**/*
+su - uroutpr -c "${SITS_HOME}/uniface/adm/startup.sh"
+tailf ${SITS_HOME}/logs/**/*
