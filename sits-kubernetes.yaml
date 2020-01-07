@@ -22,8 +22,8 @@ spec:
         app: oracle
     spec:
       containers:
-        - name: oracle-sits
-          image: oracle:sits-9.7.0
+      - name: oracle-sits
+        image: oracle:sits-9.7.0
 ---
 # Oracle service
 apiVersion: v1
@@ -55,8 +55,8 @@ spec:
         app: sits-app
     spec:
       containers:
-        - name: sits-app
-          image: sits:9.7.0-app
+      - name: sits-app
+        image: sits:9.7.0-app
 ---
 # SITS app service
 apiVersion: v1
@@ -88,8 +88,8 @@ spec:
         app: sits-webapp
     spec:
       containers:
-        - name: sits-webapp
-          image: sits:9.7.0-webapp
+      - name: sits-webapp
+        image: sits:9.7.0-webapp
 ---
 # SITS webapp service
 apiVersion: v1
