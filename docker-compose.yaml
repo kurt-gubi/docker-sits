@@ -1,0 +1,31 @@
+version: '3'
+services:
+    oracle:
+        image: oracle:sits-9.7.0
+        ports:
+        - "1521:1521"
+        volumes:
+        - dbvolume:/u01
+    sits-app:
+        image: sits:9.7.0-app
+        ports:
+        - "13086:13086"
+        links:
+        - oracle
+        - sits-webapp
+        - sits-web
+    sits-webapp:
+        image: sits:9.7.0-webapp
+        ports:
+        - "13084:13084"
+        - "13089:13089"
+        links:
+        - oracle
+    sits-web:
+        image: sits:9.7.0-web
+        ports:
+        - "80:80"
+        links:
+        - sits-webapp
+volumes:
+    dbvolume: {}
