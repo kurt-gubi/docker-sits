@@ -23,4 +23,4 @@ function _kill() {
 trap _kill SIGKILL
 
 su - ${ORA_OWNER} -c "${ORA_HOME}/bin/dbstart ${ORA_HOME}"
-tailf ${ORA_BASE}/diag/rdbms/*/*/trace/alert*.log
+/bin/sleep infinity

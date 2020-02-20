@@ -7,4 +7,4 @@ umask 002
 TOMCAT_HOME=/opt/tomcat
 
 su - tomcat -c "${TOMCAT_HOME}/bin/startup.sh"
-tailf ${TOMCAT_HOME}/logs/*
+/bin/sleep infinity
