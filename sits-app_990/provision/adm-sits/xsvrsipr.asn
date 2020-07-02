@@ -1,0 +1,10 @@
+[TM]
+; WSO USERVER assignment file
+;----------------------------------------------------------
+#FILE /u01/siapp/vision/prod/adm/svrsipr.asn
+;
+[SETTINGS]
+$PUTMESS_LOGFILE            /u01/siapp/vision/prod/logs/wasv/xsvrsipr_log_%p.log
+;
+[FILES]
+usys:userver.aps  /u01/siapp/vision/prod/sits/aps/si_srdlog.aps

@@ -1,0 +1,14 @@
+[TM]
+; Web USERVER assignment file
+;----------------------------------------------------------
+#FILE /u01/siapp/vision/prod/adm/svrsipr.asn
+;
+[SETTINGS]
+$PUTMESS_LOGFILE            /u01/siapp/vision/prod/logs/wasv/wsvrsipr_log_%p.log
+$SEARCH_SKELETON            EXTERNAL_ONLY
+;
+[SERVICES_EXEC]
+men_yapp_eml    = $EML:men_yapp_eml
+men_yapp_fld    = $FLD:men_yapp_fld
+men_yapp_srv    = $SRV:men_yapp_srv
+men_yapp_java   = $JAR:men_yapp_java

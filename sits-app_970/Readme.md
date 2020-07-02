@@ -1,6 +1,6 @@
 # SITS 9.7.0 - app
 ```
-docker build -t sits:9.7.0-app .
+docker build -t sits:app_970 .
 ```
 
 Initialising a SITS 9.7.0 base image for an application server.

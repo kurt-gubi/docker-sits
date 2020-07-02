@@ -1,13 +1,13 @@
 version: '3'
 services:
     oracle:
-        image: oracle:sits_990
+        image: oracle:sits_970-0058_usyd
         ports:
         - "1521:1521"
         volumes:
         - dbvolume:/u01
     sits-app:
-        image: sits:app_990
+        image: sits:app_970-0058
         ports:
         - "13086:13086"
         links:
@@ -15,14 +15,14 @@ services:
         - sits-webapp
         - sits-web
     sits-webapp:
-        image: sits:webapp_990
+        image: sits:webapp_970
         ports:
         - "13084:13084"
         - "13089:13089"
         links:
         - oracle
     sits-web:
-        image: sits:web_990
+        image: sits:web_970
         ports:
         - "80:80"
         links:

@@ -1,0 +1,67 @@
+[TM]
+; Components assignment file 
+;
+; This assignment file defines the location of all SITS application (.aps)
+; form (.frm), service (.svc), and Uniface Server Page (.usp) files
+;
+;-------------------------------------------------------------------------
+;
+[FILES]
+;
+; SITS Applications 
+;
+men*.aps          /u01/siapp/vision/prod/sits/aps/men*.aps
+rt.aps            /u01/siapp/vision/prod/sits/aps/rt.aps
+s*.aps            /u01/siapp/vision/prod/sits/aps/s*.aps
+win*.aps          /u01/siapp/vision/prod/sits/aps/win*.aps
+menurmon.aps      /u01/siapp/vision/prod/sits/aps/menurmon.aps
+;
+usys:userver.aps  /u01/siapp/vision/prod/sits/aps/siwlog.aps
+;
+;
+;-------------------------------------------------------------------------
+;
+; SITS forms ....
+;
+api_*.frm         /u01/siapp/vision/prod/sits/api/api_*.frm
+cam_*.frm         /u01/siapp/vision/prod/sits/camform/cam_*.frm
+her_*.frm         /u01/siapp/vision/prod/sits/herform/her_*.frm
+idf_*.frm         /u01/siapp/vision/prod/sits/idfform/idf_*.frm
+men_*.frm         /u01/siapp/vision/prod/sits/menform/men_*.frm
+siw_*.frm         /u01/siapp/vision/prod/sits/siwform/siw_*.frm
+srs_*.frm         /u01/siapp/vision/prod/sits/srsform/srs_*.frm
+win_*.frm         /u01/siapp/vision/prod/sits/winlog/win_*.frm
+*_*.frm           /u01/siapp/vision/prod/sits/cusform/*_*.frm
+;
+;-------------------------------------------------------------------------
+;
+; Uniface Services ....
+;
+api_*.svc         /u01/siapp/vision/prod/sits/api/api_*.svc
+cam_*.svc         /u01/siapp/vision/prod/sits/camform/cam_*.svc
+men_*.svc         /u01/siapp/vision/prod/sits/menform/men_*.svc
+siw_*.svc         /u01/siapp/vision/prod/sits/siwform/siw_*.svc
+srs_*.svc         /u01/siapp/vision/prod/sits/srsform/srs_*.svc
+;
+;-------------------------------------------------------------------------
+;
+; Entity Services ....
+;
+cam_*.esv         /u01/siapp/vision/prod/sits/entsvc/cam_esv/cam_*.esv
+her_*.esv         /u01/siapp/vision/prod/sits/entsvc/her_esv/men_*.esv
+men_*.esv         /u01/siapp/vision/prod/sits/entsvc/men_esv/men_*.esv
+srs_*.esv         /u01/siapp/vision/prod/sits/entsvc/srs_esv/siw_*.esv
+;
+;-------------------------------------------------------------------------
+;
+; SITS:e:vision - Uniface programs and HTML Skeleton files
+;
+siw_*.usp         /u01/siapp/vision/prod/sits/siwform/siw_*.usp
+;
+; The location of the HTML Skeleton files is only required for the 
+; Uniface Web application server.
+;
+*.hts             /u01/siapp/vision/prod/hts/*.hts
+*.ipp             /u01/siapp/vision/prod/siweb/ipp/*.*
+;
+;-------------------------------------------------------------------------

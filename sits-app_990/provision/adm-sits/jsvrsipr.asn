@@ -1,0 +1,7 @@
+[TM]
+; Java USERVER assignment file
+;----------------------------------------------------------
+#FILE /u01/siapp/vision/prod/adm/svrsipr.asn
+;
+[SETTINGS]
+$PUTMESS_LOGFILE            /u01/siapp/vision/prod/logs/javatmp/jsvrsipr_log_%p.log

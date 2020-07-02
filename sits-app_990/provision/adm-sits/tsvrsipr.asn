@@ -1,0 +1,10 @@
+[TM]
+; HTML Email USERVER assignment file
+;----------------------------------------------------------
+#FILE /u01/siapp/vision/prod/adm/svrsipr.asn
+;
+[SETTINGS]
+$PUTMESS_LOGFILE            /u01/siapp/vision/prod/logs/eml/tsvrsipr_log_%p.log
+;
+[DRIVER_SETTINGS]
+usys$ora_params = im, dac, open cursors 1000, nclob_ext, uselike, dhfr

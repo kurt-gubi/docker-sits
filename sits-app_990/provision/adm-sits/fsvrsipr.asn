@@ -1,0 +1,7 @@
+[TM]
+; Field Cache USERVER assignment file
+;----------------------------------------------------------
+#FILE /u01/siapp/vision/prod/adm/svrsipr.asn
+;
+[SETTINGS]
+$PUTMESS_LOGFILE            /u01/siapp/vision/prod/logs/svc/fsvrsipr_log_%p.log

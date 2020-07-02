@@ -1,0 +1,31 @@
+[SETTINGS]
+$putmess_logfile = /u01/siapp/vision/prod/logs/urouter/urouter%p.log
+$MAXMONS=5
+$MAXSERVERS=100
+$DEFAULT_NET=TCP:+13086
+;
+[DRIVER_SETTINGS]
+; Keep Alive
+USYS$TCP_PARAMS = ka
+;
+[SERVERS]
+; BATCH Service
+bsvrsipr=/u01/siapp/vision/prod/uniface/bin/userver /dir=/u01/siapp/vision/prod/logs/menbcp /asn=/u01/siapp/vision/prod/adm/bsvrsipr.asn /pri=256 /max=5 /maxidle=5m
+; DEEWR Service (YAPP_DEEWR)
+dsvrsipr=/u01/siapp/vision/prod/uniface/bin/userver /dir=/u01/siapp/vision/prod/logs/deewr /asn=/u01/siapp/vision/prod/adm/dsvrsipr.asn /max=5 /maxidle=5m
+; HTML Email Service (YAPP_EML)
+esvrsipr=/u01/siapp/vision/prod/uniface/bin/userver /dir=/u01/siapp/vision/prod/logs/svc /asn=/u01/siapp/vision/prod/adm/esvrsipr.asn /max=1 /maxidle=5m
+; Field Cache Service (YAPP_FLD)
+fsvrsipr=/u01/siapp/vision/prod/uniface/bin/userver /dir=/u01/siapp/vision/prod/logs/svc /asn=/u01/siapp/vision/prod/adm/fsvrsipr.asn /max=1
+; TAC Service (YAPP_TAC)
+tsvrsipr=/u01/siapp/vision/prod/uniface/bin/userver /dir=/u01/siapp/vision/prod/logs/tac /asn=/u01/siapp/vision/prod/adm/tsvrsipr.asn /max=5 /maxidle=5m
+; Client Service
+usvrsipr=/u01/siapp/vision/prod/uniface/bin/userver /dir=/u01/siapp/vision/prod/logs/userver /asn=/u01/siapp/vision/prod/adm/usvrsipr.asn /maxidle=15m /maxreq=1000
+; Web Server Service (WSVR)
+wsvrsipr=/u01/siapp/vision/prod/uniface/bin/userver /dir=/u01/siapp/vision/prod/logs/wasv /asn=/u01/siapp/vision/prod/adm/wsvrsipr.asn /maxidle=15m
+; Web Services Service (YAPP_WSO)
+xsvrsipr=/u01/siapp/vision/prod/uniface/bin/userver /dir=/u01/siapp/vision/prod/logs/stutalk /asn=/u01/siapp/vision/prod/adm/xsvrsipr.asn /max=5 /maxidle=5m
+; SVC Service (YAPP)
+ysvrsipr=/u01/siapp/vision/prod/uniface/bin/userver /dir=/u01/siapp/vision/prod/logs/svc /asn=/u01/siapp/vision/prod/adm/ysvrsipr.asn /max=5 /maxidle=5m
+; Java Service
+jsvrsipr=/u01/siapp/vision/prod/uniface/bin/userver /dir=/u01/siapp/vision/prod/logs/javatmp /asn=/u01/siapp/vision/prod/adm/jsvrsipr.asn /maxidle=5m
