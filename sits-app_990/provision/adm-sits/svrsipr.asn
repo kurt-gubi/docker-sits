@@ -30,8 +30,8 @@ $LICENSE_OPTIONS            LM_LICENSE_FILE=/u01/siapp/vision/prod/sits/cwlm/lic
 $SOAP_CALLIN_CB             MEN_SRDLOG_SVC
 ;-------------------------------------------------------
 [DRIVER_SETTINGS]
-; Oracle 11
-ORA = U7.0
+; Oracle 12.2
+ORA = U7.1
 usys$ora_params = im, dac, open cursors 1000, uselike, nclob_ext, dhfr, ss 500, fa, af 500
 ; Text
 TXT = U1.0
