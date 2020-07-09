@@ -3,9 +3,6 @@
 # Script to start a urouter listener
 #
 
-# Source function file from init.d folder (used for coloring text)
-. /etc/init.d/functions
-
 ##################################################################
 ##################### Define parameters here #####################
 ##################################################################

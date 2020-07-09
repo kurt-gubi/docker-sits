@@ -3,9 +3,6 @@
 # The 3 last core dumps will be saved.
 # Call this script with the urouter command line switches
 
-# Source function file from init.d folder (used for coloring text)
-. /etc/init.d/functions
-
 ##################################################################
 ##################### Define parameters here #####################
 ##################################################################
